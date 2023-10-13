@@ -62,7 +62,7 @@ int main()
 CExample B=A;是语法，在编译器内部还是会将其转化成函数格式
 
 ```c++
-CExampleB(A)//相当于下式
+CExample B(A)//相当于下式
 CExample B=A;
 ```
 
