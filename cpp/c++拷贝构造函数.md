@@ -59,7 +59,7 @@ int main()
 ![](http://oklbfi1yj.bkt.clouddn.com/c++%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/1.png)
 
 运行程序，屏幕输出100。
-从以上代码的运行结果可以看出，系统为对象 B 分配了内存并完成了与对象 A 的复制过程。就类对象而言，相同类型的类对象是通过拷贝构造函数来完成整个复制过程的。
+CExample B=A;是语法，在编译器内部还是会将其转化成函数格式
 
 ```c++
 CExample(const CExample& C)
