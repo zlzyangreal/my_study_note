@@ -187,17 +187,15 @@ int main()
 }
 ```
 
-![](http://oklbfi1yj.bkt.clouddn.com/c++%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/3.jpg)
-
 当g_Fun()函数执行到return时，会产生以下几个重要步骤：
 
-(1). 先会产生一个临时变量，就叫XXXX吧。
+(1). 先会产生一个临时变量，就叫X吧。
 
-(2). 然后调用拷贝构造函数把temp的值给XXXX。整个这两个步骤有点像：CExample XXXX(temp);
+(2). 然后调用拷贝构造函数把temp的值给X。整个这两个步骤相当于：CExample X(temp);
 
 (3). 在函数执行到最后先析构temp局部变量。
 
-(4). 等g_fun()执行完后再析构掉XXXX对象。
+(4). 等g_fun()执行完后再析构掉X对象。
 
 ## 浅拷贝与深拷贝
 
