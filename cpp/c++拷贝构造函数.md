@@ -119,14 +119,14 @@ int main()
 ```
 
 结果：
-'''c++
+```c++
 constructor is called
 copy constructor is called
 100
 g_func
 destructor is called
 destructor is called
-'''
+```
 调用g_fun()时，会产生以下几个重要步骤：
 
 (1).A对象传入形参时，会先会产生一个临时变量，就叫 C 吧。（所以会调用3次析构函数）
