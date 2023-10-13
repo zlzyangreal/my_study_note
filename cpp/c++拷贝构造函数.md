@@ -119,9 +119,14 @@ int main()
 ```
 
 结果：
-
-![](http://oklbfi1yj.bkt.clouddn.com/c++%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/2.png)
-
+'''c++
+constructor is called
+copy constructor is called
+100
+g_func
+destructor is called
+destructor is called
+'''
 调用g_fun()时，会产生以下几个重要步骤：
 
 (1).A对象传入形参时，会先会产生一个临时变量，就叫 C 吧。（所以会调用3次析构函数）
@@ -129,6 +134,8 @@ int main()
 (2).然后**调用拷贝构造函数把A的值给C**。 整个这两个步骤有点像：CExample C(A);
 
 (3).等g_fun()执行完后, 析构掉 C 对象。
+
+还有一个析构是主函数结束，析构A
 
 ### 函数的返回值是类的对象
 
