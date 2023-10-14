@@ -16,4 +16,5 @@ su -zlzyang [切换账户到zlzyang]
 ## 用户管理
 ### 用户添加
 useradd zlzyang[添加用户zlzyang(默认目录，在home下创建)]
+
 useradd -d /home/text zlzyang[指定目录]
