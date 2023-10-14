@@ -24,3 +24,7 @@ passwd zlzyang
 userdel zlzyang[用户删除但保留家目录]
 
 userdel -r zlzyang[完全删除]
+### 用户查询
+id zlzyang
+### 查看当前用户信息
+whoami[显示登录用户，显示登录ip时间信息]
