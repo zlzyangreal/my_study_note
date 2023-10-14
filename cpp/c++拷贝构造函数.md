@@ -197,177 +197,58 @@ int main()
 
 (4). 等g_fun()执行完后再析构掉X对象。
 
-## 浅拷贝与深拷贝
+### 浅拷贝（Shallow Copy）和深拷贝（Deep Copy）是在计算机编程中用于复制对象或数据结构的两个不同概念。它们在数据的复制方式和生命周期管理方面有重要区别：
+#### 浅拷贝（Shallow Copy）：
 
-深拷贝和浅拷贝可以简单理解为：**如果一个类拥有资源，当这个类的对象发生复制过程的时候，资源重新分配，这个过程就是深拷贝，反之，没有重新分配资源，就是浅拷贝**。
+1.浅拷贝创建一个新的对象，但该对象的一部分数据成员或元素仍然是对原始对象中相同数据的引用。换句话说，它只复制对象的引用，而不复制实际数据。
 
-深拷贝与浅拷贝的区别就在于深拷贝会在堆内存中另外申请空间来储存数据，从而也就解决了指针悬挂的问题。**简而言之，当数据成员中有指针时，必须要用深拷贝**。
+2.如果原始对象中的数据是可变的，对浅拷贝的更改也会影响原始对象，因为它们引用相同的数据。
 
-### 默认拷贝构造函数
-
-很多时候在我们都不知道拷贝构造函数的情况下，传递对象给函数参数或者函数返回对象都能很好的进行，这是因为编译器会给我们自动产生一个拷贝构造函数，这就是“默认拷贝构造函数”，这个构造函数很简单，仅仅使用“老对象”的数据成员的值对“新对象”的数据成员一一进行赋值，它一般具有以下形式：
-
-```c++
-Rect::Rect(const Rect& r)
-{
-    width=r.width;
-    height=r.height;
-}
-```
-
-### 浅拷贝
-
-所谓浅拷贝，指的是在对象复制时，只对对象中的数据成员进行简单的赋值，默认拷贝构造函数执行的也是浅拷贝。大多情况下“浅拷贝”已经能很好地工作了，但是一旦对象存在了动态成员（例如，在堆中分配内存），那么浅拷贝就会出问题了，让我们考虑如下一段代码：
+3.浅拷贝通常更快，因为它不需要复制大量数据，只需复制引用。
 
 ```c++
-#include<iostream>
-#include<assert.h>
-using namespace std;
-
-class Rect
-{
+class ShallowCopyExample {
 public:
-    Rect()
-    {
-     p=new int(100);
+    int *data;
+    ShallowCopyExample(int val) {
+        data = new int(val);
     }
-   
-    ~Rect()
-    {
-     assert(p!=NULL);
-        delete p;
-    }
-
-private:
-    int width;
-    int height;
-    int *p;
 };
 
-
-int main()
-{
-    Rect rect1;
-    Rect rect2(rect1);
-    return 0;
-}
+ShallowCopyExample original(42);
+ShallowCopyExample copy = original; // 这是浅拷贝
 ```
 
-在这段代码运行结束之前，会出现一个运行错误。原因就在于在进行对象复制时，对于动态分配的内容没有进行正确的操作。我们来分析一下：
+#### 深拷贝（Deep Copy）：
 
-在运行定义rect1对象后，由于在构造函数中有一个动态分配的语句，因此执行后的内存情况大致如下：
+4.深拷贝创建一个新的对象，并复制原始对象的所有数据，包括内部的数据，而不仅仅是引用。
 
-![](http://oklbfi1yj.bkt.clouddn.com/c++%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/4.jpg)
+5.如果原始对象中的数据是可变的，对深拷贝的更改不会影响原始对象，因为它们操作不同的数据。
 
-在使用rect1复制rect2时，由于执行的是浅拷贝，只是将成员的值进行赋值，这时 rect1.p = rect2.p，也即这两个指针指向了堆里的同一个空间，如下图所示：
-
-![](http://oklbfi1yj.bkt.clouddn.com/c++%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/5.jpg)
-
-当然，这不是我们所期望的结果，在销毁对象时，两个对象的析构函数将对同一个内存空间释放两次，这就是错误出现的原因。我们需要的不是两个p有相同的值，而是两个p指向的空间有相同的值，解决办法就是使用“深拷贝”。
-
-### 深拷贝
-
-在“深拷贝”的情况下，对于对象中动态成员，就不能仅仅简单地赋值了，而**应该重新动态分配空间**，如上面的例子就应该按照如下的方式进行处理：
+6.深拷贝通常更慢，因为它需要复制整个数据结构，包括嵌套的数据。
 
 ```c++
-#include<iostream>
-#include<assert.h>
-using namespace std;
-
-class Rect
-{
+class DeepCopyExample {
 public:
-    Rect()
-    {
-     p=new int(100);
+    int *data;
+    DeepCopyExample(int val) {
+        data = new int(val);
     }
-    
-    Rect(const Rect& r)
-    {
-     width=r.width;
-        height=r.height;
-     p=new int(100);
-        *p=*(r.p);
+    DeepCopyExample(const DeepCopyExample&amp; other) {
+        data = new int(*(other.data)); // 这是深拷贝
     }
-     
-    ~Rect()
-    {
-     assert(p!=NULL);
-        delete p;
-    }
-
-private:
-    int width;
-    int height;
-    int *p;
 };
 
-
-int main()
-{
-    Rect rect1;
-    Rect rect2(rect1);
-    return 0;
-}
+DeepCopyExample original(42);
+DeepCopyExample copy = original; // 这是深拷贝
 ```
+7.浅拷贝复制引用，多个对象共享相同的数据。
 
-此时，在完成对象的复制后，内存的一个大致情况如下：
+8.深拷贝复制数据，每个对象都有其自己的数据拷贝。
 
-![](http://oklbfi1yj.bkt.clouddn.com/c++%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/6.jpg)
+9.深拷贝通常更安全，因为它避免了数据之间的意外相互影响，但也可能更昂贵。
 
-此时rect1的p和rect2的p各自指向一段内存空间，但它们指向的空间具有相同的内容，这就是所谓的“深拷贝”。
-
-### 防止默认拷贝发生
-
-#### 声明一个私有拷贝构造函数
-
-可以不必去定义这个拷贝构造函数，这样因为拷贝构造函数是私有的，如果用户试图按值传递或函数返回该类对象，将得到一个编译错误，从而可以避免按值传递或返回对象。
-
-```c++
-//防止按值传递
-class CExample 
-{ 
-private: 
-    int a; 
-  
-public: 
-    //构造函数
-    CExample(int b) 
-    { 
-        a = b; 
-        cout<<"creat: "<<a<<endl; 
-    } 
-  
-private: 
-    //拷贝构造函数，只是声明
-    CExample(const CExample& C); 
-  
-public: 
-    ~CExample() 
-    { 
-        cout<< "delete: "<<a<<endl; 
-    } 
-  
-    void Show () 
-    { 
-        cout<<a<<endl; 
-    } 
-}; 
-  
-//???? 
-void g_Fun(CExample C) 
-{ 
-    cout<<"test"<<endl; 
-} 
-  
-int main() 
-{ 
-    CExample test(1); 
-    //g_Fun(test);   //按值传递将出错
-      
-    return 0; 
-}
-```
+在C++中，如果你定义了一个自定义类，需要特别小心如何处理拷贝构造函数和赋值操作符，以确保正确地处理浅拷贝和深拷贝。
 
 ## 拷贝构造函数的几个细节
 
