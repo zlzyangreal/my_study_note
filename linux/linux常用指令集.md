@@ -18,3 +18,9 @@ su -zlzyang [切换账户到zlzyang]
 useradd zlzyang[添加用户zlzyang(默认目录，在home下创建)]
 
 useradd -d /home/text zlzyang[指定目录]
+### 修改密码
+passwd zlzyang
+### 用户删除
+userdel zlzyang[用户删除但保留家目录]
+
+userdel -r zlzyang[完全删除]
