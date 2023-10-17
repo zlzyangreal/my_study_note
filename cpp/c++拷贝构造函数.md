@@ -195,59 +195,6 @@ int main()
 
 (4). 等主函数执行完执行完后再析构掉返回对象。
 
-### 浅拷贝（Shallow Copy）和深拷贝（Deep Copy）是在计算机编程中用于复制对象或数据结构的两个不同概念。它们在数据的复制方式和生命周期管理方面有重要区别：
-#### 浅拷贝（Shallow Copy）：
-
-1.浅拷贝创建一个新的对象，但该对象的一部分数据成员或元素仍然是对原始对象中相同数据的引用。换句话说，它只复制对象的引用，而不复制实际数据。
-
-2.如果原始对象中的数据是可变的，对浅拷贝的更改也会影响原始对象，因为它们引用相同的数据。
-
-3.浅拷贝通常更快，因为它不需要复制大量数据，只需复制引用。
-
-```c++
-class ShallowCopyExample {
-public:
-    int *data;
-    ShallowCopyExample(int val) {
-        data = new int(val);
-    }
-};
-
-ShallowCopyExample original(42);
-ShallowCopyExample copy = original; // 这是浅拷贝
-```
-
-#### 深拷贝（Deep Copy）：
-
-4.深拷贝创建一个新的对象，并复制原始对象的所有数据，包括内部的数据，而不仅仅是引用。
-
-5.如果原始对象中的数据是可变的，对深拷贝的更改不会影响原始对象，因为它们操作不同的数据。
-
-6.深拷贝通常更慢，因为它需要复制整个数据结构，包括嵌套的数据。
-
-```c++
-class DeepCopyExample {
-public:
-    int *data;
-    DeepCopyExample(int val) {
-        data = new int(val);
-    }
-    DeepCopyExample(const DeepCopyExample&amp; other) {
-        data = new int(*(other.data)); // 这是深拷贝
-    }
-};
-
-DeepCopyExample original(42);
-DeepCopyExample copy = original; // 这是深拷贝
-```
-7.浅拷贝复制引用，多个对象共享相同的数据。
-
-8.深拷贝复制数据，每个对象都有其自己的数据拷贝。
-
-9.深拷贝通常更安全，因为它避免了数据之间的意外相互影响，但也可能更昂贵。
-
-在C++中，如果你定义了一个自定义类，需要特别小心如何处理拷贝构造函数和赋值操作符，以确保正确地处理浅拷贝和深拷贝。
-
 
 ## 拷贝构造函数的几个细节
 
@@ -297,7 +244,58 @@ int main() {
 
 只有整形常量数据成员才能在类内初始化，一般静态成员是在类外初始化。int Point::b = 0;静态数据成员的生存周期是从定义出开始到源程序结束。
 
+## 浅拷贝（Shallow Copy）和深拷贝（Deep Copy）是在计算机编程中用于复制对象或数据结构的两个不同概念。它们在数据的复制方式和生命周期管理方面有重要区别：
+### 浅拷贝（Shallow Copy）：
 
+1.浅拷贝创建一个新的对象，但该对象的一部分数据成员或元素仍然是对原始对象中相同数据的引用。换句话说，它只复制对象的引用，而不复制实际数据。
+
+2.如果原始对象中的数据是可变的，对浅拷贝的更改也会影响原始对象，因为它们引用相同的数据。
+
+3.浅拷贝通常更快，因为它不需要复制大量数据，只需复制引用。
+
+```c++
+class ShallowCopyExample {
+public:
+    int *data;
+    ShallowCopyExample(int val) {
+        data = new int(val);
+    }
+};
+
+ShallowCopyExample original(42);
+ShallowCopyExample copy = original; // 这是浅拷贝
+```
+
+### 深拷贝（Deep Copy）：
+
+4.深拷贝创建一个新的对象，并复制原始对象的所有数据，包括内部的数据，而不仅仅是引用。
+
+5.如果原始对象中的数据是可变的，对深拷贝的更改不会影响原始对象，因为它们操作不同的数据。
+
+6.深拷贝通常更慢，因为它需要复制整个数据结构，包括嵌套的数据。
+
+```c++
+class DeepCopyExample {
+public:
+    int *data;
+    DeepCopyExample(int val) {
+        data = new int(val);
+    }
+    DeepCopyExample(const DeepCopyExample&amp; other) {
+        data = new int(*(other.data)); // 这是深拷贝
+    }
+};
+
+DeepCopyExample original(42);
+DeepCopyExample copy = original; // 这是深拷贝
+```
+7.浅拷贝复制引用，多个对象共享相同的数据。
+
+8.深拷贝复制数据，每个对象都有其自己的数据拷贝。
+
+9.深拷贝通常更安全，因为它避免了数据之间的意外相互影响，但也可能更昂贵。
+
+在C++中，如果你定义了一个自定义类，需要特别小心如何处理拷贝构造函数和赋值操作符，以确保正确地处理浅拷贝和深拷贝。
 
 
 
