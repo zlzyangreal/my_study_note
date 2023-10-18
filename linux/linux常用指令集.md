@@ -41,12 +41,36 @@ touch hello.txt[创建一个hello文本空文件]
 ### 拷贝文件
 cp hello.txt /zlzyang/[拷贝文件到zlzyang文件夹]
 
-cp -r /zlzyang /zlzyang2[拷贝文件夹1到文件夹2，12是同级都在home下]
+cp -r /zlzyang /zlzyang2/[拷贝文件夹1到文件夹2，12是同级都在home下]
 
-\cp -r /zlzyang /zlzyang2[强制覆盖不提示]
+\cp -r /zlzyang /zlzyang2/[强制覆盖不提示]
 ### 移除文件或者目录
 rm hello.txt[删除文件]
 
 rm -f hello.txt[强制删除不提示]
 
-rm -rf /zlzyang2[删除整个文件并且不提示]
+rm -rf /zlzyang2/[删除整个文件并且不提示]
+### 移动文件目录或重命名
+mv hello.txt bay.txt[在同一个目录叫重命名]
+
+mv hello.txt /zlzyang/bay.txt[移动文件到文件夹并且重命名]
+
+mv /zlzyang/ /home/[移动目录到home]
+### 查看内容(只能查看)
+cat hello.txt[查看文件][-n 显示行号]
+
+cat -n hello.txt |more[进行交互]
+### more指令
+#### enter向下翻一行
+
+#### 空格向下翻一页
+
+#### q 立刻离开more，不再显示该文件内容
+
+#### Ctrl+F 向下滚动一屏
+
+#### Ctrl+B 返回上一屏
+
+#### = 输出当前行号
+
+#### :f 输出当前文件名和当前行号
