@@ -38,3 +38,15 @@ rmdir /home/good/[删除空目录]
 rm -rf /home/zlzyang/[删除整个文件夹]
 ### 创建空文件
 touch hello.txt[创建一个hello文本空文件]
+### 拷贝文件
+cp hello.txt /zlzyang/[拷贝文件到zlzyang文件夹]
+
+cp -r /zlzyang /zlzyang2[拷贝文件夹1到文件夹2，12是同级都在home下]
+
+\cp -r /zlzyang /zlzyang2[强制覆盖不提示]
+### 移除文件或者目录
+rm hello.txt[删除文件]
+
+rm -f hello.txt[强制删除不提示]
+
+rm -rf /zlzyang2[删除整个文件并且不提示]
