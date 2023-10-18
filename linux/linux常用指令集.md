@@ -11,8 +11,8 @@ reboot [重启]
 
 sync [保存数据到磁盘（建议关机前使用）]
 
-## 用户切换
-su -zlzyang [切换账户到zlzyang]
+clear[清理当前页面]
+
 ## 用户管理
 ### 用户添加
 useradd zlzyang[添加用户zlzyang(默认目录，在home下创建)]
@@ -26,51 +26,25 @@ userdel zlzyang[用户删除但保留家目录]
 userdel -r zlzyang[完全删除]
 ### 用户查询
 id zlzyang
+### 用户切换
+su -zlzyang [切换账户到zlzyang]
 ### 查看当前用户信息
 whoami[显示登录用户，显示登录ip时间信息]
-### 创建目录
-mkdir /home/zlzyang[在home下创建目录zlzyang]
+### 用户组
+在创建用户没有指定组，会创建一个新同名新组
+#### 添加组
+groupadd zlzyang[添加组zlzyang]
+#### 删除组
+groupdel zlzyang[删除组zlzyang]
+#### 添加用户直接带组
+useradd -g zlzyang zlzyanggroup[添加用户zlzyang到组zlzyanggruop中]
+#### 修改用户的组
+usermod -g zlzyang zlzyangt[将zlzyang切换到zlzyangt组]
+### 用户和组相关文件
+#### /etc/passwd文件
+用户的配置文件，记录用户的各种信息
+#### /etc/shadow
+口令配置文件
+#### /etc/group 文件
+组的配置文件，记录Linux包含组的信息
 
-midir -p /home/zlzyang/good[创建多级目录]
-### 删除目录
-rmdir /home/good/[删除空目录]
-
-rm -rf /home/zlzyang/[删除整个文件夹]
-### 创建空文件
-touch hello.txt[创建一个hello文本空文件]
-### 拷贝文件
-cp hello.txt /zlzyang/[拷贝文件到zlzyang文件夹]
-
-cp -r /zlzyang /zlzyang2/[拷贝文件夹1到文件夹2，12是同级都在home下]
-
-\cp -r /zlzyang /zlzyang2/[强制覆盖不提示]
-### 移除文件或者目录
-rm hello.txt[删除文件]
-
-rm -f hello.txt[强制删除不提示]
-
-rm -rf /zlzyang2/[删除整个文件并且不提示]
-### 移动文件目录或重命名
-mv hello.txt bay.txt[在同一个目录叫重命名]
-
-mv hello.txt /zlzyang/bay.txt[移动文件到文件夹并且重命名]
-
-mv /zlzyang/ /home/[移动目录到home]
-### 查看内容(只能查看)
-cat hello.txt[查看文件][-n 显示行号]
-
-cat -n hello.txt |more[进行交互]
-### more指令
- enter向下翻一行
-
- 空格向下翻一页
-
- q 立刻离开more，不再显示该文件内容
-
- Ctrl+F 向下滚动一屏
-
- Ctrl+B 返回上一屏
-
- = 输出当前行号
-
- :f 输出当前文件名和当前行号
