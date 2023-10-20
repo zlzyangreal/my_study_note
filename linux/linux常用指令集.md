@@ -57,6 +57,10 @@ usermod -g zlzyang zlzyangt[将zlzyang切换到zlzyangt组]
 3:多用户状态有网络服务
 
 4.系统未使用保留给用户
+## 帮助指令
+man [命令或配置文件]  (功能描述:获得帮助信息)
+
+help [命令] (功能描述:获得shell内置命令的帮助信息)
 
 5:图形化界面
 
