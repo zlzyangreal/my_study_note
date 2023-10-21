@@ -12,7 +12,7 @@
 class Complex{...};
 {
   Complex c1(1,2);            //这就是一个stack构造对象
-  static Complex c2(1,2)      //构造静态对象
+  static Complex c2(1,2);     //构造静态对象
   Complex* p = new Complex(3);//这是heap构造对象
 }
 ```
