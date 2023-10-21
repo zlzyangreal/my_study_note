@@ -219,7 +219,9 @@ grep -n "yes" /home/hello.txt
   -x  解包.tar文件
 
 tar -zcvf [文件名][文件(多个文件空格隔开)]
+
 压缩文件
 
 tar -zxvf [压缩文件] -C [解压位置]
+
 解压文件
