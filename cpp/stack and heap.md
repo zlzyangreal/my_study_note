@@ -1,3 +1,4 @@
+# stack and heap基础概念
 栈是用来静态分配内存的而堆是动态分配内存的，它们都是存在于计算机内存之中。
 
 栈的分配是在程序编译的时候完成的，直接存储在内存中，接触内存很快。栈是后进先出的顺序，最后被申请的块最先被释放，这样就很容易跟踪到栈，释放栈的过程简单到仅仅是移动下指针就能完成。
@@ -21,3 +22,25 @@ stack在运行完函数自动销毁
 static在运行完函数不会被销毁，运行完整个程序会自动销毁
 
 heap需要手动销毁
+# new and delete
+c++中构造heap对象
+```c++
+Complex* pc = new Comple;
+```
+编译器执行操作：
+```c++
+void* men = operator new(sizeof(Complex));  //分配内存
+pc = static_cast<Complex*(men);             //转型
+pc -> Complex::Complex(1,2);                //构造函数
+```
+c++的释放内存
+```c++
+Complex* ps = new Comple;
+...
+delete ps;
+```
+编译器操作：
+```c++
+String::~String(ps);
+operator delete(ps);
+```
