@@ -41,6 +41,6 @@ delete ps;
 ```
 编译器操作：
 ```c++
-String::~String(ps);
-operator delete(ps);
+String::~String(ps);  //析构函数
+operator delete(ps);  //释放内存
 ```
