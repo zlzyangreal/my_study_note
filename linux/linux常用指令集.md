@@ -208,6 +208,7 @@ grep -n "yes" /home/hello.txt
 打包指令
 
 选项：
+
   -c  产生.tar打包文件
   
   -v  显示详细信息
