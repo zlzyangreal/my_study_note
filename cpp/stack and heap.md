@@ -30,7 +30,7 @@ Complex* pc = new Comple;
 编译器执行操作：
 ```c++
 void* men = operator new(sizeof(Complex));  //分配内存
-pc = static_cast<Complex*(men);             //转型
+pc = static_cast<Complex*>(men);             //转型
 pc -> Complex::Complex(1,2);                //构造函数
 ```
 c++的释放内存
