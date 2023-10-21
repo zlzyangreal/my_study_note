@@ -25,7 +25,7 @@ heap需要手动销毁
 # new and delete
 c++中构造heap对象
 ```c++
-Complex* pc = new Comple;
+Complex* pc = new Comple(1,2);
 ```
 编译器执行操作：
 ```c++
@@ -44,3 +44,10 @@ delete ps;
 String::~String(ps);  //析构函数
 operator delete(ps);  //释放内存
 ```
+数组释放：
+```c++
+String* p = new String[3];
+...
+delete[] pc;
+```
+否则会造成内存泄漏，原因是可能造成释放内存唤起次数不够
