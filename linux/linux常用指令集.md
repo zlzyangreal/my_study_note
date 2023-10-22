@@ -37,9 +37,9 @@ groupadd zlzyang[添加组zlzyang]
 #### 删除组
 groupdel zlzyang[删除组zlzyang]
 #### 添加用户直接带组
-useradd -g zlzyang zlzyanggroup[添加用户zlzyang到组zlzyanggruop中]
+useradd -g zlzyanggroup zlzyang[添加用户zlzyang到组zlzyanggruop中]
 #### 修改用户的组
-usermod -g zlzyang zlzyangt[将zlzyang切换到zlzyangt组]
+usermod -g zlzyangt zlzyang[将zlzyang切换到zlzyangt组]
 #### usermod -d [目录名][用户名]
 改变用户登录的初始目录
 
@@ -69,7 +69,12 @@ usermod -g zlzyang zlzyangt[将zlzyang切换到zlzyangt组]
 -R 选项
 
 递归目录全部修改所有文件
+## chmod [操作][文件/目录]
+修改权限
 
+u[所有者] g[所有组] o[其他人] a[所有人]
+
+方式：+ - =
 
 ## 用户级别
 指令init 5[切换到级别5]
