@@ -40,6 +40,10 @@ groupdel zlzyang[删除组zlzyang]
 useradd -g zlzyang zlzyanggroup[添加用户zlzyang到组zlzyanggruop中]
 #### 修改用户的组
 usermod -g zlzyang zlzyangt[将zlzyang切换到zlzyangt组]
+#### usermod -d [目录名][用户名]
+改变用户登录的初始目录
+
+注意：用户需要有进入新目录的权限
 ### 用户和组相关文件
 #### /etc/passwd文件
 用户的配置文件，记录用户的各种信息
@@ -47,6 +51,26 @@ usermod -g zlzyang zlzyangt[将zlzyang切换到zlzyangt组]
 口令配置文件
 #### /etc/group 文件
 组的配置文件，记录Linux包含组的信息
+
+### groups
+查看当前用户组
+### chgrp [组名][文件名]
+修改文件组
+
+-R 选项
+
+递归目录全部修改所有文件
+## 文件目录所有者
+### ls -ahl
+查看所有者
+### chown [用户名][文件名]
+修改所有者
+
+-R 选项
+
+递归目录全部修改所有文件
+
+
 ## 用户级别
 指令init 5[切换到级别5]
 
@@ -226,3 +250,4 @@ tar -zcvf [文件名][文件(多个文件空格隔开)]
 tar -zxvf [压缩文件] -C [解压位置]
 
 解压文件
+
