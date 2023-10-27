@@ -21,7 +21,7 @@ stack在运行完函数自动销毁
 
 static在运行完函数不会被销毁，运行完整个程序会自动销毁
 
-heap需要手动销毁
+heap需要手动销毁,new都是heap构造
 # new and delete
 c++中构造heap对象
 ```c++
