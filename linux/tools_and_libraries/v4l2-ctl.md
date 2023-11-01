@@ -19,7 +19,7 @@ v4l2-ctl -d /dev/video0 --get-fmt-video
 ---------------------------------------
 获取摄像头的当前设置
 
-v4l2-ctl --d /dev/video_device --set-fmt-video=width=[width],height=[height],pixelformat=[MJPG] --stream-[mmap] --stream-to=path/to/output.jpg --stream-count=1
+v4l2-ctl -d /dev/video_device --set-fmt-video=width=[width],height=[height],pixelformat=[MJPG] --stream-[mmap] --stream-to=path/to/output.jpg --stream-count=1
 -------------------------------------------------------------------------
 从特定设备以特定分辨率抓图
 ***例子***
