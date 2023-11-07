@@ -14,3 +14,8 @@ http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
 http://vjs.zencdn.net/v/oceans.mp4
 
 https://media.w3.org/2010/05/sintel/trailer.mp4
+
+gst-launch-1.0 videotestsrc pattern=smpte ! autovideosink
+-----------------------------------------
+彩条测试
+

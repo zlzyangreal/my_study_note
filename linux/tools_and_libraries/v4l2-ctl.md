@@ -19,6 +19,18 @@ v4l2-ctl -d /dev/video0 --get-fmt-video
 ---------------------------------------
 获取摄像头的当前设置
 
+ v4l2-ctl --device=/dev/video1 --set-fmt-video=width=2560,height=960 pixelformat=0
+---------------------------------------------------------------------
+设置参数格式
+
+v4l2-ctl --device=/dev/video1 -p 60
+-----------------------------------
+设置帧率
+
+v4l2-ctl --device=/dev/video1 --stream-mmap=3 --stream-count = 600
+------------------------------------------------------------------
+通过mmap获取视频流，mmap buffer数量是3，也是默认值，输出600帧
+
 v4l2-ctl -d /dev/video_device --set-fmt-video=width=[width],height=[height],pixelformat=[MJPG] --stream-[mmap] --stream-to=path/to/output.jpg --stream-count=1
 -------------------------------------------------------------------------
 从特定设备以特定分辨率抓图
