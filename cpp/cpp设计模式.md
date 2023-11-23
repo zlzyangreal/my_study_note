@@ -1,0 +1,1 @@
+﻿https://veitchkyrie.github.io/2020/02/08/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(%E5%85%AD)-C++-%E9%80%82%E9%85%8D%E5%99%A8(Adapter)%E6%A8%A1%E5%BC%8F/
