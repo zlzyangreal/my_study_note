@@ -1,0 +1,1 @@
+﻿https://doc.embedfire.com/openwrt/user_manal/zh/latest/User_Manual/openwrt/wifi.html
