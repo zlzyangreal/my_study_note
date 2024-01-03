@@ -12,6 +12,7 @@ YOLO是one-stage
 
 ***IOU***
 ![IOU本地](<../../Document images/YOLO/IOU.png>)
+* 后续置信度
 
 ***精度与召回率***
 
@@ -22,6 +23,7 @@ YOLO是one-stage
 * `TN`: `ture negatives`负类判断为负类
 
 ***基于置信度阈值计算精度和召回率***
+
 ![本地](<../../Document images/YOLO/计算精度召回率.png>)
 * 三个置信度为 0.9 0.8 0.7
 ~~~
@@ -34,10 +36,45 @@ YOLO是one-stage
 ~~~
 
 ***计算 map 值***
+
 ![本地](<../../Document images/YOLO/计算map值.png>)
 * MAP 值就是所有阈值类别的平均(所围成的面积[矩形取])
 
 YOLOv1 核心思想
 ---------------
 ![本地](<../../Document images/YOLO/YOLOv1核心思想.png>)
-1. 将输入图像分成 S*S的网格
+
+1. 将输入图像分成 S*S的网格(物体中心在该网格，这个网格负责检测物体)
+
+![本地](<../../Document images/YOLO/核心思想原文.png>)
+
+2. 计算每个格子的两个 bounding boxes(正方形和矩形)
+    * bounding boex 包括 x y(坐标(x,y)表示相对于网格中心点位置) w h 和 confident(置信度)
+3.  每个网格还要预测一个类别信息
+4. 综合考虑，输出结果框(7 * 7 * 30结果张量)
+
+YOLOv1 网路架构
+---------------
+![本地](<../../Document images/YOLO/YOLOv1网络架构.png>)
+
+* 前5层均为卷积神经网络层
+* 输出7 * 7 * 30结果张量
+
+![本地](<../../Document images/YOLO/YOLOv1结果张量.png>)
+
+YOLOv1 损失函数
+---------------
+损失函数:
+
+![本地](<../../Document images/YOLO/损失函数公式.png>)
+
+损失函数解析:
+
+![本地](<../../Document images/YOLO/损失函数.png>)
+
+* 在位置误差位置,宽高取根号的原因是因为方便体现不同大小的物体不同宽高影响
+
+YOLOv1 缺点
+-----------
+1. 每一个cell只预测一个类别，重叠无法解决
+2. 小物体效果一般,长宽比可选但单一
