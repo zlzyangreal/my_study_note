@@ -68,3 +68,16 @@ def __init__(self, device, input_size=None, num_classes=20, trainable=False, con
         # 构建一个卷积层，用于预测目标的类别、置信度和边界框坐标
         self.pred = nn.Conv2d(512, 1 + self.num_classes + 4, 1) # only one box
 ```
+## 训练过程
+![本地](<../../Document images/YOLO/YOLOv3训练过程.png>)
+* `obj` `object loss` 置信度损失
+* `cls` `class loss` 类别损失
+* `bbox` `local loss` 中心坐标和宽高损失
+* `total` 总损失
+
+源码
+```python
+print('[Epoch %d/%d][Iter %d/%d][lr %.6f]''[Loss: obj %.2f || cls %.2f || bbox %.2f || total %.2f || size %d || time: %.2f]'
+        % (epoch+1, max_epoch, iter_i, epoch_size, tmp_lr,conf_loss.item(), cls_loss.item(), txtytwth_loss.item(), total_loss.item(), train_size[0], t1-t0),
+        flush=True)
+```
