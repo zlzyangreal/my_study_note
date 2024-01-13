@@ -123,3 +123,70 @@ sppf time: 0.20780706405639648
 * `EMA(Exponential Moving Average)`，可以理解为给训练的参数加了一个动量，让它更新过程更加平滑
 * `Mixed precision`，混合精度训练，能够减少显存的占用并且加快训练速度，前提是GPU硬件支持
 * `Evolve hyper-parameters`，超参数优化，没有炼丹经验的人勿碰，保持默认就好
+
+## 损失计算
+1. `Classes loss`，分类损失，采用的是BCE loss，注意只计算正样本的分类损失
+2. `Objectness loss`，obj损失，采用的依然是BCE loss，注意这里的obj指的是网络预测的目标边界框与GT Box的CIoU。这里计算的是所有样本的obj损失
+3. `Location loss`，定位损失，采用的是CIoU loss，注意只计算正样本的定位损失
+
+![本地](<../../Document images/YOLO/损失计算.png>)
+* λ 1 , λ 2 , λ 3 为平衡系数
+## 平衡不同尺度的损失
+这里是指针对三个预测特征层（P3, P4, P5）上的obj损失采用不同的权重。在源码中，针对预测小目标的预测特征层（P3）采用的权重是4.0，针对预测中等目标的预测特征层（P4）采用的权重是1.0，针对预测大目标的预测特征层（P5）采用的权重是0.4，作者说这是针对COCO数据集设置的超参数。
+
+![本地](<../../Document images/YOLO/YOLOv5平衡不同尺度的损失.png>)
+## 消除Grid敏感度
+YOLOv2，v3的计算公式
+
+![本地](<../../Document images/YOLO/YOLOv2，v3的计算公式.png>)
+* tx是网络预测的目标中心x坐标偏移量（相对于网格的左上角）
+* ty是网络预测的目标中心y坐标偏移量（相对于网格的左上角）
+* cx是对应网格左上角的x坐标
+* cy是对应网格左上角的y坐标
+* σ是Sigmoid激活函数，将预测的偏移量限制在0到1之间，即预测的中心点不会超出对应的Grid Cell区域
+
+关于预测目标中心点相对Grid网格左上角( cx , cy )偏移量为σ ( tx ) , σ ( ty ) YOLOv4的作者认为这样做不太合理，比如当真实目标中心点非常靠近网格的左上角点（σ ( tx ) 和σ ( ty ) 应该趋近与0）或者右下角点（σ ( tx )和σ ( ty )应该趋近与1）时，网络的预测值需要负无穷或者正无穷时才能取到，而这种很极端的值网络一般无法达到。为了解决这个问题，作者对偏移量进行了缩放从原来的( 0 , 1 ) (0, 1)(0,1)缩放到( − 0.5 , 1.5 ) (-0.5, 1.5)(−0.5,1.5)这样网络预测的偏移量就能很方便达到0或1，故最终预测的目标中心点bx , by的计算公式为
+
+![本地](<../../Document images/YOLO/YOLOv2,v3最终预测的目标中心点计算公式.png>)
+* y = σ ( x )对应before曲线和y = 2 ⋅ σ ( x ) − 0.5 对应after曲线，很明显通过引入缩放系数scale以后，y对x更敏感了，且偏移的范围由原来的( 0 , 1 )调整到了( − 0.5 , 1.5 )
+
+    ![本地](<../../Document images/YOLO/对比曲线.png>)
+    
+在YOLOv5中除了调整预测Anchor相对Grid网格左上角( cx , cy )偏移量以外，还调整了预测目标高宽的计算公式
+
+* 之前
+
+    ![本地](<../../Document images/YOLO/YOLOv5调整前计算公式.png>)
+* 调整后
+
+    ![本地](<../../Document images/YOLO/YOLOv5调整后计算公式.png>)
+* 前后对比曲线，（相对Anchor宽高的倍率因子）的变化曲线
+
+    ![本地](<../../Document images/YOLO/（相对Anchor宽高的倍率因子）的变化曲线.png>)
+    * 调整后倍率因子被限制在( 0 , 4 )之间
+* 作者的大致意思是，原来的计算公式并没有对预测目标宽高做限制，这样可能出现梯度爆炸，训练不稳定等问题
+## 匹配正样本(Build Targets)
+YOLOv5与YOLOv4差不多，主要的区别在于GT Box与Anchor Templates模板的匹配方式。在YOLOv4中是直接将每个GT Box与对应的Anchor Templates模板计算IoU，只要IoU大于设定的阈值就算匹配成功。但在YOLOv5中，作者先去计算每个GT Box与对应的Anchor Templates模板的高宽比例，即
+
+![本地](<../../Document images/YOLO/YOLOv5高宽比例.png>)
+
+然后统计这些比例和它们倒数之间的最大值，这里可以理解成计算GT Box和Anchor Templates分别在宽度以及高度方向的最大差异（当相等的时候比例为1，差异最小）
+
+![本地](<../../Document images/YOLO/YOLOv5高宽比例2.png>)
+
+接着统计两者之间最大值，即宽度和高度方向差异最大的值
+
+![本地](<../../Document images/YOLO/YOLOv5高宽比例3.png>)
+
+如果GT Box和对应的Anchor Template的rmax小于阈值anchor_t（在源码中默认设置为4.0），即GT Box和对应的Anchor Template的高、宽比例相差不算太大，则将GT Box分配给该Anchor Template模板
+* 图解:假设对某个GT Box而言，其实只要GT Box满足在某个Anchor Template宽和高的× 0.25倍和× 4.0倍之间就算匹配成功
+
+    ![本地](<../../Document images/YOLO/YOLOv5例图.png>)
+    * 剩下的步骤和YOLOv4中一致
+        * 将GT投影到对应预测特征层上，根据GT的中心点定位到对应Cell，注意图中有三个对应的Cell。因为网络预测中心点的偏移范围已经调整到了( − 0.5 , 1.5 )，所以按理说只要Grid Cell左上角点距离GT中心点在( − 0.5 , 1.5 )范围内它们对应的Anchor都能回归到GT的位置处。这样会让正样本的数量得到大量的扩充
+        * 则这三个Cell对应的AT2和AT3都为正样本
+
+        ![本地](<../../Document images/YOLO/YOLOv5例图2.png>)
+    * 还需要注意的是，YOLOv5源码中扩展Cell时只会往上、下、左、右四个方向扩展，不会往左上、右上、左下、右下方向扩展。下面又给出了一些根据![本地](<../../Document images/YOLO/插入公式.png>)的位置扩展的一些Cell案例，其中%1表示取余并保留小数部分。
+
+        ![本地](<../../Document images/YOLO/YOLOv5例图3.png>)
