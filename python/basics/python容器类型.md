@@ -48,3 +48,18 @@
 ![本地](<../../Document images/python/python basic/访问字典数据项2.png>)
 
 ![本地](<../../Document images/python/python basic/字典查找.png>)
+
+## 集合
+集合是不重复元素的无序组合
+
+![本地](<../../Document images/python/python basic/创建集合.png>)
+
+![本地](<../../Document images/python/python basic/更新集合.png>)
+
+![本地](<../../Document images/python/python basic/访问集合.png>)
+
+![本地](<../../Document images/python/python basic/集合运算.png>)
+
+![本地](<../../Document images/python/python basic/集合运算2.png>)
+
+![本地](<../../Document images/python/python basic/集合使用.png>)
