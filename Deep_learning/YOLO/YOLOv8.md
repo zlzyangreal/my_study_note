@@ -24,3 +24,5 @@ https://docs.ultralytics.com/zh/
     4. 验证
     5. 预测
     6. 导出
+## YOLOv8工程模型框架图
+![本地](<../../Document images/YOLO/YOLOv8工程模型框架.png>)
