@@ -1,0 +1,1 @@
+[Swin Transformer](https://www.msra.cn/zh-cn/news/features/swin-transformer-v2) 是一个通用的视觉 [Transformer](什么是transformer) 骨干网络，它在物体检测和语义分割任务中大幅刷新了此前的纪录，并被广泛应用于众多视觉任务中，如图像生成、视频动作识别、视觉自监督学习、图像复原、医疗图像分割等

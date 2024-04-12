@@ -1,0 +1,1 @@
+[CSWin Transformer（cross-shape window）](https://zhuanlan.zhihu.com/p/388165447)是[[swin Transformer]]的改进版，它提出了通过十字形的窗口来做self-attention，它不仅计算效率非常高，而且能够通过两层计算就获得全局的感受野。CSWin Transformer还提出了新的编码方式：LePE，进一步提高了模型的准确率。

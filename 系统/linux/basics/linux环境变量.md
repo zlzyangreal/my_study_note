@@ -1,0 +1,2 @@
+## LD_LIBRARY_PATH
+`LD_LIBRARY_PATH`是一个环境变量，在Linux和类Unix系统中使用。它指定了动态链接器在加载动态链接库（也称为共享库或动态链接共享对象）时要搜索的路径

@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "forcedInclude": [
+                "D:\\diansai\\Keil5\\ARM\\ARMCC\\include\\stdint.h",
+                "F:\\Temporary_Files\\GPIO\\Drivers\\STM32G4xx_HAL_Driver\\Inc\\stm32g4xx_hal_pwr_ex.h",
+                "F:\\Temporary_Files\\GPIO\\Drivers\\CMSIS\\Device\\ST\\STM32G4xx\\Include\\stm32gbk1cb.h"
+            ],
+            "includePath": [
+                "${workspaceFolder}/**",
+                "F:\\Temporary_Files\\GPIO\\Drivers\\CMSIS\\Include",
+                "F:\\Temporary_Files\\GPIO\\Drivers\\CMSIS\\Device\\ST\\STM32G4xx\\Include",
+                "F:\\Temporary_Files\\GPIO\\Drivers\\STM32G4xx_HAL_Driver\\Inc",
+                "F:\\Temporary_Files\\GPIO\\Core\\Inc"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__CC_ARM",
+                "__IO"
+            ],
+            "compilerPath": "D:\\visual_studio\\gcc\\bin\\gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "windows-gcc-x86"
+        }
+    ],
+    "version": 4
+}

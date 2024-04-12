@@ -1,0 +1,52 @@
+// 一个创建c++（GDB调试器）模板，示例
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        
+       {
+           // 配置名称，将会在启动配置的下拉菜单中显示
+           "name": "g++ 生成和调试活动文件", 
+           // 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg
+           "type": "cppdbg", 
+           // 请求配置类型，可以为launch（启动）或attach（附加）
+           "request": "launch",
+           // 环境变量
+           "environment": [
+           ], 
+           // 指定连接的调试器，可以为gdb或lldb。但我没试过lldb
+           "MIMode": "gdb", 
+           "miDebuggerPath": "/usr/bin/gdb",
+           // dbug时当前的目录
+           "cwd": "${workspaceFolder}", 
+           "program": "${workspaceFolder}/open",
+           // 程序调试时传递给程序的命令行参数，一般设为空即可
+           "args": [
+               /* 参数传入 */
+           ], 
+           // 设为true时程序将暂停在程序入口处，相当于在main上打断点
+           "stopAtEntry": false, 
+           // 调试窗口：为true时使用单独的cmd窗口（跳出黑窗），与其它IDE一致；18年10月后设为false可调用VSC内置终端
+           "externalConsole": false, 
+           // 每次执行一次编译再调试（与task的label相同）
+           "preLaunchTask": "Build my project", 
+           
+           // 模板自带，好像可以更好地显示STL容器的内容，具体作用自行Google
+           "setupCommands": [
+              {
+                  "description": "为 gdb 启用整齐打印",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              },
+              {
+                 "description": "将反汇编风格设置为 Intel",
+                 "text": "-gdb-set disassembly-flavor intel",
+                 "ignoreFailures": true
+              }
+           ]
+       }
+    ]
+}

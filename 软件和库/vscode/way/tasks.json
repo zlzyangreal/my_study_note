@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+       {
+             "label": "build",
+             "type": "shell",
+             "command": "sudo ./build.sh",
+             "args": [
+                // linux为空
+             ],
+             "options": {
+                 // 进入build
+                 // "${workspaceFolder}/build"：根下
+                 // "${fileDirname}"：当前
+                 "cwd": "${workspaceFolder}"
+             },
+             "group": {
+                 "kind":"build", // test 任务 和 build 任务不同！
+                 "isDefault":true
+             }
+       },
+       {
+         "label": "exe",
+         "type": "shell",
+         "command": "./open", // 查看本机MinGW, linux下识别核心数
+         "args": [
+         ],
+         "options": {
+             // 进入build
+             // "${workspaceFolder}/bin"：根下
+             // "${fileDirname}"：当前文件的所在文件夹路径
+             "cwd": "${workspaceFolder}",
+             "env": {
+              
+             }
+         },
+         "group": {
+             "kind":"build",
+             "isDefault":true
+         }
+       },
+       {
+         "label":"Build my project", // launch文件需要对应
+         "dependsOn":[
+             "build",
+             // "exe",                
+         ]
+       }
+    ]
+  }
