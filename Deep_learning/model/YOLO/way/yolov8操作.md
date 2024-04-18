@@ -25,4 +25,8 @@ yolo detect predict model=/home/aorus/Desktop/WJ/Code/ultralytics/runs/detect/tr
 ## 两种数据集格式处理
 [CoCo数据集格式](https://blog.csdn.net/m0_63493883/article/details/134786368)
 [VOC数据集格式](https://blog.csdn.net/m0_63493883/article/details/134786368)
-
+### 问题
+* 修改时尽量修改defuault.yaml,不新建
+* voc格式训不起来直接串成COCO
+	* [函数](voc_to_coco.py)
+* yolo的初始配置如储存位置什么的，在`.config`

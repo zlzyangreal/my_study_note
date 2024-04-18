@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MCU/stm32g431/way/G431串口.md",
+                "file": "paper/网站.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "MCU/stm32g431/way/G431串口.md",
+                "file": "paper/网站.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "MCU/stm32g431/way/G431串口.md",
+                "file": "paper/网站.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "MCU/stm32g431/way/G431串口.md"
+                "file": "paper/网站.md"
               }
             }
           }
@@ -145,52 +145,53 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "fabdd64b3ca6fb3d",
+  "active": "650f152260d40a63",
   "lastOpenFiles": [
+    "软件和库/Anaconda/anaconda配置缓存文件位置.md",
+    "软件和库/Anaconda/anaconda换源.md",
+    "软件和库/Anaconda/切换python版本.md",
+    "软件和库/Anaconda/创建环境.md",
+    "软件和库/Anaconda/标注工具Labelimg.md",
+    "Document images/Anaconda/缓存文件配置文件.png",
+    "Document images/Anaconda/缓存文件配置文件方案.png",
+    "Document images/Anaconda/Labelimg标签操作.png",
+    "Document images/Anaconda/Labelimg操作界面.png",
+    "Document images/Anaconda/labelimg左侧菜单栏中按钮功能.png",
+    "Document images/Anaconda/Labelimg路径.png",
+    "MCU/stm32f103/STM32F103外部中断.md",
+    "MCU/stm32f103/STM32F103定时器.md",
+    "MCU/stm32f103/STM32F103串口.md",
     "MCU/stm32g431/蓝桥杯G431.md",
+    "paper/网站.md",
+    "软件和库/vs/VS运用.md",
+    "软件和库/vscode/vscode 使用.md",
+    "软件和库/vs/way/SFML库配置.md",
+    "软件和库/vs/way/FFTW库配置.md",
+    "Document images/VS_and_VScode/FFTW1.png",
+    "Document images/VS_and_VScode/SFML6.png",
+    "Document images/VS_and_VScode/SFML5.png",
+    "Document images/VS_and_VScode/SFML4.png",
+    "Document images/VS_and_VScode",
+    "Document images/新建文件夹",
+    "软件和库/vs/way/vs创建工程.pdf",
+    "vs创建工程,pdf.md",
+    "软件和库/vs/way/vs使用基础配置.md",
+    "软件和库/vs/way",
+    "Deep_learning/model/YOLO/way/yolov8操作.md",
+    "Deep_learning/model/YOLO/voc_to_coco.py",
+    "Deep_learning/model/YOLO/voc_to_coco.yaml",
+    "Deep_learning/model/YOLO/新建 Text Document.txt",
+    "Deep_learning/model/YOLO/YOLO导航.md",
+    "MCU/stm32g431/way/G431I2C.md",
+    "MCU/stm32g431/way/G431ADC.md",
+    "MCU/stm32g431/way/G431串口.md",
     "MCU/stm32g431/way/G431定时器输入捕获.md",
     "MCU/stm32g431/way/G431定时器输出PWM.md",
     "MCU/stm32g431/way/G431定时器中断.md",
     "MCU/stm32g431/way/G431外部触发中断.md",
-    "MCU/stm32g431/way/G431LCD屏幕配置.md",
-    "MCU/stm32g431/way/G431基本配置.md",
-    "Document images/MCU/g431输入捕获2.png",
-    "Document images/MCU/g431输入捕获1.png",
-    "Document images/MCU/g431输入捕获原理图.png",
-    "Document images/MCU/g431pwm4.png",
-    "Document images/MCU/g431pwm3.png",
-    "Document images/MCU/g431pwm2.png",
-    "Document images/MCU/g431pwm1.png",
-    "MCU/stm32g431/way/G431串口.md",
-    "MCU/stm32g431/way/LCD使LED亮灭混乱.md",
-    "Document images/MCU/g431串口配置.png",
-    "Deep_learning/语言/cpp/way/STL/ostream类.md",
-    "系统/linux/basics/command/文件目录.md",
-    "系统/linux/basics/Linux指令操作.md",
-    "系统/linux/basics/添加一块磁盘.md",
-    "系统/linux/basics/linux找回root密码.md",
-    "系统/linux/basics/linux系统备份与恢复.md",
-    "系统/linux/basics/command/压缩解压类.md",
-    "系统/linux/Linux下CPP工程模板.md",
-    "Deep_learning/语言/shell/shell脚本.md",
-    "软件和库/vscode/vscode 使用.md",
-    "软件和库/vscode/way/launch.json文件.md",
-    "Deep_learning/语言/cmake/cmake文件.md",
-    "系统/windows/Windows上格式化TF卡.md",
     "MCU/stm32g431/way/G431GPIO配置.md",
-    "Document images/MCU/g431定时器配置.png",
-    "软件和库/vscode/way/VScode 在MCU编程中uint8_t这种定义未能包含问题.md",
-    "Deep_learning/语言/cpp/C++.md",
-    "Document images/MCU/g431_lcd管脚.png",
     "软件和库/vscode/way/c_cpp_properties.json",
     "MCU/stm32g431/way",
-    "软件和库/vscode/way/tasks.json",
-    "软件和库/vscode/way/新建 Text Document.txt",
-    "软件和库/vscode/way/launch.json",
-    "系统/linux/build.sh",
-    "系统/linux/CMakeLists.txt",
-    "系统/linux/main.cpp",
-    "Deep_learning/model/YOLO/way",
-    "Deep_learning/model/YOLO/mydefault 1.yaml"
+    "软件和库/vscode/way/tasks.json"
   ]
 }

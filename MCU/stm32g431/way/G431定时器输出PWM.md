@@ -14,5 +14,5 @@ HAL_TIM_PWM_Start(&htim16,TIM_CHANNEL_1);
 ```
 ## 5.设置比较值
 ```c
-HAL_TIM_SetCompare(&htim16,TIM_CHANNEL_1,500);
+__HAL_TIM_SetCompare(&htim16,TIM_CHANNEL_1,400);
 ```
