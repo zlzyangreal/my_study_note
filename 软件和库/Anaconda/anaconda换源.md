@@ -1,4 +1,5 @@
 # 查看默认的源
+```bash
 conda config --show channels
 
 conda config --remove-key channels
@@ -9,6 +10,7 @@ conda config --set show_channel_urls yes
 pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
 
 sudo vim ~/.condarc
+```
 ## 清华
 ```shell
 channels:

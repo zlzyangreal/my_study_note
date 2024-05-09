@@ -1,16 +1,24 @@
+[参考](https://blog.csdn.net/weixin_44796670/article/details/115900538)
 ## 1.[opencv官方网址](https://opencv.org/releases/)
 ## 2.[CCMake下载](ccmake.md)
-## 3.创建build文件先cmake，再ccmake编辑参数
-## 4.编译
+## 3.下载依赖项
+```bash
+sudo apt-get install build-essential libgtk2.0-dev libgtk-3-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev
+```
+## 4.创建build文件先cmake，再ccmake编辑参数
+```bash
+OPENCV_GENERATE_PKGCONFIG = ON
+```
+## 5.编译
 ```bash
 make -j4
 ```
-## 5.安装make
+## 6.安装make
 ```bash
 sudo make install
 ```
 
-## 6.环境配置
+## 7.环境配置
 ### 1.配置pkg-config环境
 opencv4.pc文件的默认路径：/usr/local/lib/pkgconfig/opencv4.pc  
 若此目录下没有，可以使用以下命令搜索：
@@ -50,7 +58,7 @@ sudo vim /etc/ld.so.conf.d/opencv4.conf
 ```bash
 sudo ldconfig
 ```
-## 7测试OpenCV
+## 8.测试OpenCV
 cd 到/opencv/samples/cpp/example_cmake目录下，依次执行以下命令：
 ```bash
 cmake .

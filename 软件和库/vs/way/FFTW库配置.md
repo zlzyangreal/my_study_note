@@ -12,3 +12,8 @@
 2. 包含头文件
 3. 链接lib
 4. 加配置(附加依赖项lib)
+```bash
+libfftw3-3.lib
+libfftw3f-3.lib
+libfftw3l-3.lib
+```

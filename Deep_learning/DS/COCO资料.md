@@ -13,7 +13,7 @@ MS COCO的全称是Microsoft Common Objects in Context，起源于微软于2014�
 * 5 captions per image
 * 250,000 people with keypoints
 
-在91个类别中的82个类别有超过5000个实例标记。其中包含了Pascal [[VOC]]的数据集类别。COCO数据集共有328000张图片，有2500000实例标记
+在91个类别中的82个类别有超过5000个实例标记。其中包含了Pascal [[VOC资料]]的数据集类别。COCO数据集共有328000张图片，有2500000实例标记
 
 ![本地](<../../Document images/DS/COCO数据类别.jpg>)
 

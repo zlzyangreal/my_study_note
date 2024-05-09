@@ -1,4 +1,4 @@
-﻿# OpenWrt 安全设置
+# OpenWrt 安全设置
 
 SSH
 ---

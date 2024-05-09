@@ -1,4 +1,4 @@
-﻿# openwrt wifi设置
+# openwrt wifi设置
 
 查看网卡类型
 -----------

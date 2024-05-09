@@ -1,7 +1,9 @@
 ## 1.[官方网址(64位亲测可用)](https://www.sfml-dev.org/download/sfml/2.6.1/)
 * 括号里面对应的是VS版本
 ## 2.导入头文件
-* `F:\XHY\Work_for_DSP_CPP\ACT\SFML-2.6.1\include`
+```bash
+F:\XHY\Work_for_DSP_CPP\ACT\SFML-2.6.1\include
+```
 ![[SFML1.png]]
 ## 3.导入lib文件
 ![[SFML2.png]]
