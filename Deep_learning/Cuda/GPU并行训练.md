@@ -13,5 +13,5 @@
 ## Pipeline Parallelism (PP)
 ![[PP.png]]
 例如PipeDream，GPipe，和Chimera
-GPipe有[tensorflow版本](GPipe(tensorflow版本).md)和pytorch版本
+GPipe 有[tensorflow版本](GPipe(tensorflow版本).md)和pytorch版本
 **不同模型组件在不同的GPU上时，GPU之间的传输就很重要，对于GPU之间的通信是一个考验。但是GPU的通信在这种密集任务中很难办到，所以这个方式慢慢淡出了视野**

@@ -8,31 +8,30 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fabdd64b3ca6fb3d",
+            "id": "f3e64cc063d615a1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Deep_learning/model/YOLO/way/yolov8操作.md",
+                "file": "Deep_learning/NPU/rknn推理YOLOv8.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f3e64cc063d615a1",
+            "id": "01930e549939d0b0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MCU/stm32f407/FFT变换处理.md",
+                "file": "软件和库/Git/git命令操作.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -61,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "rknn",
+                "query": "分布式",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "MCU/stm32f407/FFT变换处理.md",
+                "file": "Deep_learning/NPU/rknn推理YOLOv8.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "MCU/stm32f407/FFT变换处理.md",
+                "file": "Deep_learning/NPU/rknn推理YOLOv8.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "MCU/stm32f407/FFT变换处理.md"
+                "file": "Deep_learning/NPU/rknn推理YOLOv8.md"
               }
             }
           }
@@ -160,33 +159,34 @@
   },
   "active": "f3e64cc063d615a1",
   "lastOpenFiles": [
-    "MCU/stm32f407/滤波器.md",
-    "软件和库/vscode/vscode 使用.md",
-    "Deep_learning/model/YOLO/YOLO导航.md",
-    "Deep_learning/model/模型查看.md",
-    "Deep_learning/NPU/way/PC环境搭建.md",
-    "Deep_learning/model/YOLO/way/yolov8操作.md",
-    "Deep_learning/Cuda/cuda不同版本切换.md",
-    "Deep_learning/Cuda/Linux上GPU监视.md",
-    "Deep_learning/Cuda/nccl多卡通讯驱动.md",
-    "Deep_learning/Cuda/GPU并行训练.md",
-    "软件和库/Anaconda/anaconda配置缓存文件位置.md",
-    "软件和库/Anaconda/anaconda换源.md",
-    "软件和库/Anaconda/切换python版本.md",
-    "软件和库/Anaconda/创建环境.md",
+    "Deep_learning/NPU/way/pt  TorchScript ONNX RKNN 均能转出，无法推理问题.md",
     "Deep_learning/NPU/rknn推理YOLOv8.md",
-    "软件和库/Anaconda/pip操作指令.md",
-    "软件和库/vscode/way/远程连接.md",
-    "系统/linux/basics/command/文件目录.md",
-    "系统/linux/basics/Linux指令操作.md",
-    "系统/linux/Linux下CPP工程模板.md",
-    "软件和库/vs/way/SFML库配置.md",
+    "Deep_learning/NPU/way/rknn部署导出TorchScript形式.md",
+    "Deep_learning/model/YOLO/way/yolov8操作.md",
+    "Deep_learning/NPU/way/RKNN模型部署.md",
+    "Deep_learning/NPU/way/RKNN模型导出.md",
+    "Deep_learning/NPU/way/rknn导出格式的修改.md",
+    "软件和库/Git/git命令操作.md",
+    "Deep_learning/NPU/way/PC环境搭建.md",
     "Deep_learning/NPU/way/香橙派环境搭建.md",
-    "Deep_learning/NPU/way",
-    "系统/linux/tools_and_libraries/树莓派安装Python3.9.md",
-    "Deep_learning/NPU/rk3588.md",
-    "Deep_learning/NPU/香橙派网卡驱动.md",
+    "软件和库/Anaconda/pip操作指令.md",
+    "软件和库/Git/vscode 使用 git 连接 github gitee.md",
+    "软件和库/Anaconda/创建环境.md",
+    "软件和库/Git/gitkraken使用端口占用解决方案.md",
+    "软件和库/Anaconda/标注工具Labelimg.md",
     "Deep_learning/NPU/rknn-toolkit2支持包问题.md",
+    "Deep_learning/model/Teacher-student model/EfficientAD/学生网络和自动编码器网络.md",
+    "Deep_learning/NPU/香橙派网卡驱动.md",
+    "Deep_learning/ACT/Pytorch/way/pytorch模型保存三种格式.md",
+    "Deep_learning/model/Teacher-student model/EfficientAD/教师模型.md",
+    "Deep_learning/model/Transformer/什么是transformer.md",
+    "Deep_learning/DS/异常检测数据集.md",
+    "Deep_learning/DS/VOC资料.md",
+    "Deep_learning/Cuda/GPU并行训练.md",
+    "Deep_learning/ACT/tensorflow/GPipe(tensorflow版本).md",
+    "Deep_learning/ACT/Pytorch/ACT/DDP(显卡交火).md",
+    "图像处理",
+    "Deep_learning/NPU/way",
     "语言/cmake.zip",
     "Document images/Processing theory/谱减法.png",
     "Document images/Processing theory/谱减法.png.crdownload",
@@ -204,7 +204,6 @@
     "Document images/Anaconda/Labelimg标签操作.png",
     "Document images/Anaconda/缓存文件配置文件方案.png",
     "Document images/VS_and_VScode",
-    "Document images/新建文件夹",
-    "软件和库/vs/way"
+    "Document images/新建文件夹"
   ]
 }
